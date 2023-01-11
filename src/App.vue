@@ -1,23 +1,62 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from "vue-router";
+import CustomizationPanel from "./components/CustomizationPanel.vue";
+import { useCustomizationStore } from "@/stores/customization";
+
+const customization = useCustomizationStore();
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <v-app :theme="customization.darkTheme ? 'dark' : 'light'">
+    <header>
+      <img
+        alt="Vue logo"
+        class="logo"
+        src="@/assets/logo.svg"
+        width="125"
+        height="125"
+      />
+      <v-navigation-drawer expand-on-hover :rail="customization.mini_sidebar">
+        <v-list>
+          <v-list-item
+            prepend-avatar="https://randomuser.me/api/portraits/women/85.jpg"
+            title="Sandra Adams"
+            subtitle="sandra_a88@gmailcom"
+          ></v-list-item>
+        </v-list>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+        <v-divider></v-divider>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+        <v-list density="compact" nav>
+          <v-list-item
+            prepend-icon="mdi-folder"
+            title="My Files"
+            value="myfiles"
+          ></v-list-item>
+          <v-list-item
+            prepend-icon="mdi-account-multiple"
+            title="Shared with me"
+            value="shared"
+          ></v-list-item>
+          <v-list-item
+            prepend-icon="mdi-star"
+            title="Starred"
+            value="starred"
+          ></v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+      <CustomizationPanel />
 
-  <RouterView />
+      <div class="wrapper">
+        <nav>
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+        </nav>
+      </div>
+    </header>
+
+    <RouterView />
+  </v-app>
 </template>
 
 <style scoped>
