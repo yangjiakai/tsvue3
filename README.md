@@ -1,8 +1,9 @@
 # 目标
 
-1. vite 集成 ts
+1. vite 集成 ts [-]
 2. vite 集成 pinia
 3. vite 集成 nuxt3
+4. vite 集成 vuetify3
 
 ## Customize configuration
 
