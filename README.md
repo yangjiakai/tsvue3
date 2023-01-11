@@ -1,9 +1,9 @@
 # 目标
 
-1. vite 集成 ts [-]
-2. vite 集成 pinia
-3. vite 集成 nuxt3
-4. vite 集成 vuetify3
+1. vite 集成 ts       ...完成
+2. vite 集成 pinia    ...完成
+3. vite 集成 nuxt3    ...施工中
+4. vite 集成 vuetify3 ...完成
 
 ## Customize configuration
 
